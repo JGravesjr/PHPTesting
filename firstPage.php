@@ -13,25 +13,25 @@
         $message = "Try again.";
       }}
     if (isset($_POST['value'])) {
-        #Performing Validation checks on value.
-        $min = 3;
-        $max = 6;
-        $set = array("abc","def","ghi");
-        $value = $_POST['value'];
-        if (!isset($value) || empty($value)){
-          echo "There is no value for value.<br />";
-        } elseif (strlen($value) < $min) {
-          echo "The value does not have enough characters.<br />";
-        } elseif (strlen($value) > $max) {
-          echo "The value has too many characters.<br />";
-        } elseif (!is_string($value)) {
-          echo "Value is not a string.<br />";
-        } elseif (!in_array($value, $set)) {
-          echo "The value is not in the array.<br />";
-        } else {
-          echo "You did it!";
-        }
+      #Performing Validation checks on value.
+      $min = 3;
+      $max = 6;
+      $set = array("abc","def","ghi");
+      $value = $_POST['value'];
+      if (!isset($value) || empty($value)){
+        echo "There is no value for value.<br />";
+      } elseif (strlen($value) < $min) {
+        echo "The value does not have enough characters.<br />";
+      } elseif (strlen($value) > $max) {
+        echo "The value has too many characters.<br />";
+      } elseif (!is_string($value)) {
+        echo "Value is not a string.<br />";
+      } elseif (!in_array($value, $set)) {
+        echo "The value is not in the array.<br />";
+      } else {
+        echo "You did it!";
       }
+    }
   } else {
     $username = "";
     $message = "Please enter your username and password.";

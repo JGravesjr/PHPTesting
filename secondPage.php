@@ -23,8 +23,6 @@
               } else {
                 echo "Please return to previous page and enter username and password.";
               }
-
-
             ?>
          </pre>
       </pre>
