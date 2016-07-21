@@ -1,6 +1,7 @@
 <?php
   #This allows you to use php(or more?) functions defined on this page.
   require_once("includedFunctions.php");
+  $errors = array();
 
   #This looks at the POST data for the submit button, then starts its processes
   #if it's there. Which in this case are either User information or Value.
@@ -11,19 +12,38 @@
     #defined in includedFunctions.php to send users to http://cowboydr.com/.
     #If you don't get the right login it tells you to try again.
     if (isset($_POST['username'])){
-      $username = $_POST["username"];
-      $password = $_POST["password"];
-      if ($username == "CowboyDr" && $password == "ggtr554T") {
-        #Successful Login
-        redirect("http://cowboydr.com/");
-      } else {
-        $username = $_POST["username"];
-        $message = "Try again.";
+      $username = trim($_POST["username"]);
+      $password = trim($_POST["password"]);
+
+      #Requiring the presence of both a password and a username before allowing
+      #user to attempt to log in.
+      $fieldsRequired = array("username", "password");
+      foreach($fieldsRequired as $field) {
+        $value = trim($_POST[$field]);
+        if (!presenceVal($value)){
+          $errors[$field] = ucfirst($field) . " can't be blank";
+        }
+      }
+
+      #Requiring max lengths from usernames and passwords.
+      $maxLengthFields = array("username" => 30, "password" => 8);
+      maxLengthVal($maxLengthFields);
+      
+      #Check for errors before logging in.
+      if (empty($errors)) {
+        #Try to log in.
+        if ($username == "CowboyDr" && $password == "ggtr554T") {
+          #Successful Login
+          redirect("http://cowboydr.com/");
+        } else {
+          $username = $_POST["username"];
+          $message = "Try again.";
+        }
       }
     }
     #Checks for a third parameter, value. Then performs a series of validation
     #checks for testing purposes.
-    if (isset($_POST['value'])) {
+    if (!isset($_POST['value'])) {
 
       $min = 3;
       $max = 6;
@@ -50,6 +70,7 @@
         }
 
     }
+
   } else {
     #For first time users.
     $username = "";
@@ -79,7 +100,12 @@
     <a href="secondPage.php?id=<?php echo $id; ?>&company=<?php echo urlencode($companyName);
     ?>"><?php echo $linkName; ?></a><br />
 
-    <?php echo $message; ?><br />
+    <?php
+    #if a message for anything is set this will echo it, if it isn't, no probs.
+    if (isset($message)){
+        echo $message;
+    }
+    ?><br />
 
     <form action="firstPage.php" method="post">
       <!-- Form to test out forms. Takes username, password, value, and submit.
