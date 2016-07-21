@@ -1,15 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<?php
+  #Redirects user to another location.
+  function redirect($newLocation) {
+    header("Location: " . $newLocation);
+    exit;
+  }
 
-<html lang="en">
-  <head>
-      <title>Included Functions</title>
-  </head>
-  <body>
-    <?php
-    function redirect($newLocation) {
-      header("Location: " . $newLocation);
-      exit;
+  #Formats error reports for users.
+  function form_errors($errors=array()) {
+    $output = "";
+    if (!empty($errors)) {
+      $output .= "<div class=\"error\">";
+      $output .= "Please fix the following errors:";
+      $output .= "<ul>";
+      foreach ($errors as $key => $error) {
+        $output .= "<li>{$error}</li>";
+      }
+      $output .= "</ul>";
+      $output .= "</div>";
     }
-    ?>
-  </body>
-</html>
+    return $output;
+  }
+
+  #Checks whether or not there is a value in the field.
+  function presenceVal($value) {
+    return isset($value) || $value === "";
+  }
+
+
+?>
