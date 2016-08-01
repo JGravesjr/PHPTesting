@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+   <head>
+      
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />	
+
+      <title> Javacript reference </title>
+
+      <!-- Link to external Javascript -->
+      <script language="javascript" src="js/javascript.js"></script>
+   </head>
+
+   <body>
+        <script language="javascript" type="text/javascript">
+	<!-- Hide Javascript
+		//Show min and max value allowed in Javascript
+		document.write(Number.MAX_VALUE+"<br />");
+		document.write(Number.MIN_VALUE+"<br />");
+		
+		//Strings and escaped characters
+		var samp_str = "Here are some escaped character \" \' \\ \t \n";
+		document.write(samp_str + "<br /><br><br>");
+
+		//Concantenation and string functions
+		var first_str = "First String ";
+		var second_str = "Second String";
+		var combined = first_str + second_str;
+		document.write(combined + "<br />");
+		document.write("Length of string: " + combined.length + "<br /><br><br>");
+
+		//Variable functions and precedence.
+		var str_var = "5";
+		var num_var = 10;
+		var total = num_var + str_var;
+		var mult_total = num_var * str_var;
+		document.write("5 + 10 = " + total + "<br />");
+		document.write("5 * 10 = " + mult_total + "<br />");
+            
+		//Forced precedence.
+		var total = num_var + Number(str_var);
+		document.write("5 + 10 = " + total + "<br /><br><br>");
+
+		//Floats
+		var float_var = 3.14159263333333;
+		var float_str = float_var.toFixed(5);
+		document.write("Shortened PI " + float_str + "<br />");
+		document.write("Integer PI " + parseInt(float_var) + "<br /><br><br>");
+
+		//Boolean
+		var bool_var = Boolean(23);
+		document.write("Boolean of 23 is " + bool_var + "<br /><br>");
+
+		//Comparison
+		var rand_num1 = 5;
+		var rand_num2 = 10;
+		document.write("Is 5 > 10 " + (rand_num1 > rand_num2) + "<br /><br>");
+
+		//Logical Operands pay attention to the ! infront of v this, means not
+		document.write("Is 5<10 and 5 != 10 " + (!(rand_num1 < rand_num2) && (rand_num1 != rand_num2)));
+
+
+	    //Arrays
+	    var vehicles = new Array("car", "truck", "van");
+	    document.write(vehicles[1]);
+
+	    //For loop
+	    for(i in vehicles)
+  	    {
+		document.write("Value in array " + vehicles[i] + "<br />");
+	    }
+
+	    //Conditional Operators
+	    var rand_var = (5<10) ? "5 is less than 10" : "5 is greater than 10";
+	    document.write(rand_var);
+
+	    if (5 > 10) {
+		document.write("<br /> 5 is greater than 10" + "<br />");
+	    } else if (5 < 10) {
+		document.write("5 is less than 10" + "<br />");
+	    }
+
+	    var state = "California";
+	    switch(state)
+		{
+		case "California":
+		    document.write("Warmer than me" + "<br />");
+		    break;
+		default: 
+		    document.write("idk" + "<br />");
+		    break;
+		}
+	-->
+      </script>
+
+      <noscript>
+	<h3> My amazing site with no Javascript </h3>
+      </noscript>
+   </body>
+
+</html>

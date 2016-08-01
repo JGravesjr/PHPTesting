@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+   <head>
+      
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />	
+
+	<title> Javacript reference </title>
+
+	<!-- Link to external Javascript -->
+	<script language="javascript" src="js/javascript.js"></script>
+
+	<!-- Bad practice internal Javascript -->
+	<script language="javascript" type="text/javascript">
+	<!-- Hide Javascript
+		function editNodeText(regex, input, helpId, helpMessage)
+		{
+			if(!regex.test(input))
+			{
+				if(helpId != null)
+					while (helpId.firstChild) {
+						helpId.removeChild(helpId.firstChild);
+					}
+				helpId.appendChild(document.createTextNode(helpMessage));
+			return false;
+			}
+			else {
+				if (helpId != null)
+				{
+					while (helpId.firstChild)
+					{
+						helpId.removeChild(helpId,firstChild);
+					}
+					return true;
+				}
+			}
+		}
+
+	function errorReporting(inputField, errorId)
+	{
+		return editNodeText(/^[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid name.");
+	}	
+	function 
+	
+	// -->
+	</script>
+
+	<noscript>
+		<h3> My amazing site with no Javascript </h3>
+	</noscript>
+
+   </head>
+
+   <body>
+      
+	<div>
+		Enter your name: <input id="name" name="name" type="text" size="30" 
+		onblur="isTheFieldEmpty(this, document.getElementById('name_help'))" />
+		<span id="name_help"></span>
+	</div>
+        <div>
+                Enter your name: <input id="street" name="street" type="text" size="30" 
+                onblur="isTheFieldEmpty(this, document.getElementById('street_help'))" />
+                <span id="street_help"></span>
+        </div>
+        <div>
+                Enter your name: <input id="city" name="city" type="text" size="30" 
+                onblur="isTheFieldEmpty(this, document.getElementById('city_help'))" />
+                <span id="city_help"></span>
+        </div>
+        <div>
+                Enter your name: <input id="state" name="state" type="text" size="2" 
+                onblur="isTheFieldEmpty(this, document.getElementById('state_help'))" />
+                <span id="state_help"></span>
+        </div>
+        <div>
+                Enter your name: <input id="email" name="email" type="text" size="30" 
+                onblur="isTheFieldEmpty(this, document.getElementById('email_help'))" />
+                <span id="email_help"></span>
+        </div>
+
+   </body>
+
+</html>
